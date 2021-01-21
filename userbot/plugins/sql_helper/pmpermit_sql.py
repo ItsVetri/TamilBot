@@ -1,6 +1,7 @@
+# modified by @saravanakrish
 from sqlalchemy import Column, String
 
-from jarvis.plugins.sql_helper import BASE, SESSION
+from userbot.plugins.sql_helper import BASE, SESSION
 
 
 class PMPermit(BASE):
