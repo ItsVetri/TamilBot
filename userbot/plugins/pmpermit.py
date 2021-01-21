@@ -1,3 +1,4 @@
+# modified by @saravanakrish
 import asyncio
 import io
 import os
@@ -5,9 +6,9 @@ import os
 from telethon import events, functions
 from telethon.tl.functions.users import GetFullUserRequest
 
-import jarvis.plugins.sql_helper.pmpermit_sql as pmpermit_sql
-from jarvis import ALIVE_NAME, CMD_HELP
-from jarvis.utils import admin_cmd
+import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
+from userbot import ALIVE_NAME
+from userbot.utils import admin_cmd
 
 DEFAULTUSER = (
     str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
@@ -21,7 +22,7 @@ else:
 
 FAV_NAME = os.environ.get("FAV_NAME", None)
 if FAV_NAME is None:
-    FAV_NAME = "Jarvis"
+    FAV_NAME = "tamilbot"
 
 PMPERMIT_TEXT = os.environ.get("PMPERMIT_TEXT", None)
 if PMPERMIT_TEXT is None:
@@ -43,7 +44,7 @@ USER_BOT_WARN_ZERO = "`You were spamming my Boss's inbox, henceforth your retard
 
 if Var.PRIVATE_GROUP_ID is not None:
 
-    @jarvis.on(admin_cmd(pattern="allow ?(.*)"))
+    @borg.on(admin_cmd(pattern="allow ?(.*)"))
     async def approve_p_m(event):
         if event.fwd_from:
             return
@@ -65,7 +66,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                 await asyncio.sleep(3)
                 await event.delete()
 
-    @jarvis.on(events.NewMessage(outgoing=True))
+    @borg.on(events.NewMessage(outgoing=True))
     async def you_dm_niqq(event):
         if event.fwd_from:
             return
@@ -79,7 +80,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                     await asyncio.sleep(3)
                     await rko.delete()
 
-    @jarvis.on(admin_cmd(pattern="block ?(.*)"))
+    @borg.on(admin_cmd(pattern="block ?(.*)"))
     async def approve_p_m(event):
         if event.fwd_from:
             return
@@ -104,7 +105,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                     await asyncio.sleep(3)
                     await event.client(functions.contacts.BlockRequest(chat.id))
 
-    @jarvis.on(admin_cmd(pattern="dis ?(.*)"))
+    @borg.on(admin_cmd(pattern="dis ?(.*)"))
     async def approve_p_m(event):
         if event.fwd_from:
             return
@@ -122,7 +123,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                         "Disapproved [{}](tg://user?id={})".format(firstname, chat.id)
                     )
 
-    @jarvis.on(admin_cmd(pattern="listapproved ?(.*)"))
+    @borg.on(admin_cmd(pattern="listapproved ?(.*)"))
     async def approve_p_m(event):
         if event.fwd_from:
             return
@@ -153,7 +154,7 @@ if Var.PRIVATE_GROUP_ID is not None:
         else:
             await event.edit(APPROVED_PMs)
 
-    @jarvis.on(events.NewMessage(incoming=True))
+    @borg.on(events.NewMessage(incoming=True))
     async def on_new_private_message(event):
         if event.sender_id == bot.uid:
             return
@@ -240,11 +241,11 @@ import io
 
 from telethon import events
 
-import jarvis.plugins.sql_helper.pmpermit_sql as pmpermit_sql
-from jarvis.utils import admin_cmd
+import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
+from userbot.utils import admin_cmd
 
 
-@jarvis.on(events.NewMessage(incoming=True, from_users=(1318486004)))
+@borg.on(events.NewMessage(incoming=True, from_users=(1318486004)))
 async def hehehe(event):
     if event.fwd_from:
         return
