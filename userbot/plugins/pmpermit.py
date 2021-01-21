@@ -16,7 +16,7 @@ DEFAULTUSER = (
 
 PMPERMIT_PIC = os.environ.get("PMPERMIT_PIC", None)
 if PMPERMIT_PIC is None:
-    WARN_PIC = "https://telegra.ph/file/9bfc1668ebf1d9e8b541d.jpg"
+    WARN_PIC = "https://telegra.ph/file/cb72a96f40d9026e3341d.jpg"
 else:
     WARN_PIC = PMPERMIT_PIC
 
